@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{ctex}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+	inputencoding=utf8,
+	extendedchars=\true,
+	basicstyle=\ttfamily\small, % 基本样式：等宽字体，小号
+	keywordstyle=\color{blue}\bfseries, % 关键字样式：蓝色，加粗
+	commentstyle=\color{gray}, % 注释样式：灰色
+	stringstyle=\color{red}, % 字符串样式：红色
+	numbers=left, % 在左边显示行号
+	numberstyle=\tiny\color{gray}, % 行号样式：灰色，小号字体
+	frame=single, % 给代码块加框
+	breaklines=true, % 代码过长时自动换行
+	captionpos=b, % 标题位置在底部
+	language=Bash, % 设定语言为 Bash
+	escapechar=\%, % 使用 % 作为转义字符
+	literate={␣}{\textvisiblespace}1 {汉}{\texttt{汉}}1 {字}{\texttt{字}}1, % 处理中文字符
+}
+\begin{document}
+	
+	\title{Your Document Title}
+	\author{谢泉飞23020007131}
+	\date{\today} % 使用 \today 自动生成当前日期
+	\maketitle
+	
+	\pagenumbering{roman}
+	\tableofcontents
+	\newpage
+	
+	\pagenumbering{arabic}
+	
+	\section{Introduction}
+	\section{title}
+		\subsection{title}
+			\subsubsection{title}
+			
+			\subsubsection{title}
+			
+			\subsubsection{title}
+			
+			
+			
+		\subsection{title}
+		
+		\subsection{title}
+		
+	\section{title}
+	
+	
+\end{document}

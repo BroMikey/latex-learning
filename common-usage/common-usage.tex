@@ -1,0 +1,44 @@
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[UTF8]{ctex}
+\usepackage{color}
+
+\begin{document}
+
+	\title{My First Document}
+	\author{BroMikey}
+	\date{\today}
+	\maketitle
+	\pagenumbering{roman}
+	\tableofcontents
+	\newpage
+	\pagenumbering{arabic}
+	
+	\section{Introduction}
+	{\color{blue}This is the introduction.}
+	\colorbox{red}{test colorbox}
+	
+	\section{Methods}
+	
+	\subsection{Stage 1}
+	\label{sec1}The first part of the methods.
+	\begin{enumerate}
+		\item[Fish] First thing
+		
+		\item[Plants] Second thing
+			\begin{itemize}
+				\item[-] A sub-thing
+				
+				\item[+] Another sub-thing
+			\end{itemize}
+		\item Third thing
+	\end{enumerate}
+	
+	\subsection{Stage 2}
+	The second part of the methods.% this is a common note
+	\#,\$,\%,\^,\&,\_,\{,\},\~,\textbackslash\\% 换行
+	
+	\section{Results}
+	Here are my results. Referring to section \ref{sec1} on page \pageref{sec1}
+
+\end{document}

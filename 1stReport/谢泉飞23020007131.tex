@@ -1,0 +1,130 @@
+\documentclass{article}
+\usepackage{ctex}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+	inputencoding=utf8,
+	extendedchars=\true,
+	basicstyle=\ttfamily\small, % 基本样式：等宽字体，小号
+	keywordstyle=\color{blue}\bfseries, % 关键字样式：蓝色，加粗
+	commentstyle=\color{gray}, % 注释样式：灰色
+	stringstyle=\color{red}, % 字符串样式：红色
+	numbers=left, % 在左边显示行号
+	numberstyle=\tiny\color{gray}, % 行号样式：灰色，小号字体
+	frame=single, % 给代码块加框
+	breaklines=true, % 代码过长时自动换行
+	captionpos=b, % 标题位置在底部
+	language=Bash, % 设定语言为 Bash
+	escapechar=\%, % 使用 % 作为转义字符
+	literate={␣}{\textvisiblespace}1 {汉}{\texttt{汉}}1 {字}{\texttt{字}}1, % 处理中文字符
+}
+\begin{document}
+	
+	\title{Your Document Title}
+	\author{谢泉飞23020007131}
+	\date{\today} % 使用 \today 自动生成当前日期
+	\maketitle
+	
+	\pagenumbering{roman}
+	\tableofcontents
+	\newpage
+	
+	\pagenumbering{arabic}
+	
+	\section{Introduction}
+	第一次使用latex编辑，不太习惯使用，其中git内容使用的markdown格式，发布在我的静态网站上https://bromikey.github.io/
+	两个仓库链接是
+	
+	
+	\section{Hello Git!}
+	\subsection{简单的常用指令}
+		\begin{lstlisting}
+git status      # 查看当前文件状态
+git branch      # 查看分支情况
+git branch new-branch  # 创建新分支
+git switch branch-name # 切换到该分支
+git switch -c new-branch   # 创建并切换到该分支
+git add filename   # 将文件提交到缓存区
+git add -A     # 将所有更新的文件添加
+git commit     # 将缓存区的文件提交到分支上
+git commit -m""	# 同上不过直接指定message内容为""内内容
+		\end{lstlisting}
+	\subsection{在本地提交树上移动}
+		\subsubsection{HEAD分离}
+			HEAD一般是对当前分支的符号引用，指向你正在其基础上进行工作的提交记录。HEAD 总是指向当前分支上最近一次提交记录。大多数修改提交树的 Git 命令都是从改变 HEAD 的指向开始的。
+			HEAD 通常情况下是指向分支名的（如 bugFix）。在你提交时，改变了 bugFix 的状态，这一变化通过 HEAD 变得可见。
+			\begin{lstlisting}
+git switch c1	# 将HEAD分离出来
+			\end{lstlisting}
+		\subsubsection{相对引用}
+			我们直接使用指定哈希值来移动，例如一次提交值为`fed2....`，可以使用git switch fed2来使HEAD指向此提交
+			不过，相对引用解决了这样指定的问题，可以使用`HEAD\^`来表示向上移动一个提交记录，`HEAD\~3`等来移动多个单位。
+			这个操作符可以反复在节点名称后。
+			
+		\subsubsection{撤销变更}
+			\begin{lstlisting}
+git reset HEAD^
+			\end{lstlisting}
+			
+
+	\subsection{本地与远程仓库的交互}
+		\begin{lstlisting}
+git fetch	# 获取远程仓库更新内容
+git merge	# 将另一分支和当前分支合并
+git pull	# 作用等同于git fetch + git merge
+git push	# 将本地更新提交到远程仓库
+git pull --rebase # 特定情况使用
+		\end{lstlisting}
+		
+	\section{Hello Latex!}	
+	\subsubsection{基本的内容}
+	一下内容包含着一个文档基本内容。
+		\textbackslash documentclass[a4paper, 12pt]\{article\}
+		
+		\textbackslash begin\{document\}\\
+		\textbackslash title\{My First Document\}\\
+		\textbackslash author\{My Name\}\\
+		\textbackslash date\{\textbackslash today\}\\
+		\textbackslash maketitle\\
+		
+		\textbackslash section\{Introduction\}\\
+		This is the introduction.
+		
+		\textbackslash section\{Methods\}\\
+		
+		\textbackslash subsection\{Stage 1\}\\
+		\textbackslash label\{sec1\} The first part of the methods.\\
+		
+		\textbackslash subsection\{Stage 2\}\\
+		The second part of the methods.\\
+		
+		\textbackslash section\{Results\}\\
+		Here are my results. Referring to section \textbackslash ref\{sec1\} on page \textbackslash pageref\{sec1\}\\
+		\textbackslash end\{document\}\\
+		
+		
+	\subsubsection{中文内容显示}
+	此部分内容解决中文内容无法显示的问题。
+		\textbackslash usepackage\{ctex\}\\
+		
+	\subsubsection{代码显示}
+	此部分内容为了正确显示bash代码。
+		\textbackslash lstset\{
+		inputencoding=utf8,\\
+		extendedchars=\textbackslash true,\\
+		basicstyle=\textbackslash ttfamily\textbackslash small, \% 基本样式：等宽字体，小号\\
+		keywordstyle=\textbackslash color\{blue\}\textbackslash bfseries, \% 关键字样式：蓝色，加粗\\
+		commentstyle=\textbackslash color\{gray\}, \% 注释样式：灰色\\
+		stringstyle=\textbackslash color\{red\}, \% 字符串样式：红色\\
+		numbers=left, \% 在左边显示行号\\
+		numberstyle=\textbackslash tiny\textbackslash color\{gray\}, \% 行号样式：灰色，小号字体\\
+		frame=single, \% 给代码块加框\\
+		breaklines=true, \% 代码过长时自动换行\\
+		captionpos=b, \% 标题位置在底部\\
+		language=Bash, \% 设定语言为 Bash\\
+		escapechar=\textbackslash\%, \% 使用 \% 作为转义字符\\
+		literate=\{␣\}\{\textbackslash textvisiblespace\}1 \{汉\}\{\textbackslash texttt\{汉\}\}1 \{字\}\{\textbackslash texttt\{字\}\}1, \% 处理中文字符\\
+		\}\\
+		
+\end{document}
