@@ -1,0 +1,137 @@
+\documentclass{article}
+\usepackage{ctex}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\lstset{
+	inputencoding=utf8,
+	extendedchars=\true,
+	basicstyle=\ttfamily\small, % 基本样式：等宽字体，小号
+	keywordstyle=\color{blue}\bfseries, % 关键字样式：蓝色，加粗
+	commentstyle=\color{gray}, % 注释样式：灰色
+	stringstyle=\color{red}, % 字符串样式：红色
+	numbers=left, % 在左边显示行号
+	numberstyle=\tiny\color{gray}, % 行号样式：灰色，小号字体
+	frame=single, % 给代码块加框
+	breaklines=true, % 代码过长时自动换行
+	captionpos=b, % 标题位置在底部
+	language=Bash, % 设定语言为 Bash
+	escapechar=\%, % 使用 % 作为转义字符
+	literate={␣}{\textvisiblespace}1 {汉}{\texttt{汉}}1 {字}{\texttt{字}}1, % 处理中文字符
+}
+\begin{document}
+	
+	\title{第二次实验课程报告}
+	\author{谢泉飞23020007131}
+	\date{\today} % 使用 \today 自动生成当前日期
+	\maketitle
+	
+	\pagenumbering{roman}
+	\tableofcontents
+	\newpage
+	
+	\pagenumbering{arabic}
+	
+	\section{Introduction}
+	linux基本操作，shell编程基本语法，正则表达式处理数据。
+	\section{linux}
+		\subsection{基本操作（5个）}
+			\begin{lstlisting}[]
+cd .. # 返回上一级目录
+mkdir # 创建目录
+touch # 创建文件
+rm # 删除文件
+mv # 移动或重命名文件
+			\end{lstlisting}
+			
+		\subsection{常用操作（2）}
+			\begin{lstlisting}[]
+ls -l -t -h -a # 展示当前目录下文件，长形式、按时间排列、显示人类可理解文件大小、全部文件（包括隐藏）
+chmod # 改变文件权限，执行文件前需要先给文件添加执行权限
+			\end{lstlisting}
+					
+	\section{shell编程基本语法，vim编辑器的使用}
+		\subsection{vim编辑器使用（3）}
+			\begin{lstlisting}[]
+vim newfile # 打开一个文件，如果没有则创建一个新文件后打开
+# 在标准模式中使用HJKL进行左下上右的操作；
+# 在标准模式按i进入插入模式；
+# 在标准模式输入‘:’进入命令模式，之后输入wq保存并退出，需要对文件有写入权限才能修改和保存文件
+			\end{lstlisting}
+		\subsection{shell编程基本语法（5）}
+			\begin{lstlisting}
+echo # 打印
+$ # 引用变量，可以理解为使用返回值
+# 条件选择
+cat condition.sh # 读取condition.sh文件内容
+# 以下为其输出，同时展示条件分支的语法
+			\end{lstlisting}
+			\begin{lstlisting}
+# 不知名报错，把上面代码行和此代码行放一起就会报错
+if [ "$1"x = "bromikey"x ]; then
+echo "Hello bromikey"
+elif [ "$1"x = "dingzhen"x ]; then
+echo "xuebao bizui"
+else
+echo "$1 have no access"
+fi
+			\end{lstlisting}
+			\begin{lstlisting}
+# 循环
+cat loop.sh
+#for (( i=0; i <= 100; i++ ))
+#do
+#sum=$[ $sum + $i ]
+#done
+#echo $sum
+			\end{lstlisting}
+			\begin{lstlisting}			
+# 读取输入
+cat read.sh
+read -t 10 -p "enter your name" name
+case "$name"x in
+"dingzhen"x)
+echo "xuebao bizui"
+;;
+"bromikey"x)
+echo "hello $name"
+;;
+"158"x)
+echo "zuiren"
+;;
+esac
+			\end{lstlisting}
+	\section{数据处理，正则表达式（5）}
+		主要就是使用grep查找，sed替换这两个命令。
+			\begin{lstlisting}	
+grep 'error' logfile.txt				
+			\end{lstlisting}
+					
+			\begin{lstlisting}	
+grep '^a' filename.txt				
+			\end{lstlisting}
+				
+					
+			\begin{lstlisting}	
+sed 's/foo/bar/g' input.txt > output.txt
+			
+			\end{lstlisting}
+				
+					
+			\begin{lstlisting}	
+ls | grep '\.log$'
+			
+			\end{lstlisting}
+			\begin{lstlisting}	
+grep -c '[0-9]' data.csv
+			\end{lstlisting}
+	\section{解题感悟}
+	结果这些也没什么贴的，代码就是结果了，其他内容写在我对hexo静态博客上了。https://bromikey.github.io/
+	
+	仓库链接https://github.com/BroMikey/latex-learning
+	
+	对解题没什么感悟，毕竟是按照教程学的，有什么不会也直接问ai了，这些东西太多，肯定是记不完的，有个这个用法的印象，用的时候查就是了。目前我对正则的感受就是这些。
+	
+	不过对latex我感悟挺重的，这玩意是真不好用啊，还会报一些不知道为什么的错，比如texstudio\_OCVqlj.tex: 错误: 69: Undefined control sequence. then，这东西你说因为什么报错呢，then关键词？把这一行删了下一行开始报错，把上一行删了也还报错，不知名报错越用越难受，markdown明明更适合代码类的实验报告，还是不太理解学习这个工具的作用。	希望老师能给学生解答疑惑。
+	
+\end{document}

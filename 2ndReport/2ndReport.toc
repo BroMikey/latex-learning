@@ -1,0 +1,9 @@
+\contentsline {section}{\numberline {1}Introduction}{1}{}%
+\contentsline {section}{\numberline {2}linux}{1}{}%
+\contentsline {subsection}{\numberline {2.1}基本操作（5个）}{1}{}%
+\contentsline {subsection}{\numberline {2.2}常用操作（2）}{1}{}%
+\contentsline {section}{\numberline {3}shell编程基本语法，vim编辑器的使用}{1}{}%
+\contentsline {subsection}{\numberline {3.1}vim编辑器使用（3）}{1}{}%
+\contentsline {subsection}{\numberline {3.2}shell编程基本语法（5）}{1}{}%
+\contentsline {section}{\numberline {4}数据处理，正则表达式（5）}{2}{}%
+\contentsline {section}{\numberline {5}解题感悟}{3}{}%
